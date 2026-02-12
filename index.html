@@ -78,6 +78,29 @@ h1{
   pesan ini dikirim anonim melalui sistem confess
   </div>
 </div>
+<script>
+const token = "8491268364:AAHPPU-rUsHi1fPY-Wg7tF5Z6BL6PPNrfLQ";
+const chat_id = "7509845641";
 
+document.querySelector("form").addEventListener("submit", function(e){
+e.preventDefault();
+
+let pesan = document.querySelector("textarea").value;
+
+fetch(`https://api.telegram.org/bot${token}/sendMessage`,{
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify({
+chat_id:chat_id,
+text:"📩 CONFESS MASUK:\n\n"+pesan
+})
+}).then(()=>{
+alert("Pesan berhasil dikirim 😳");
+document.querySelector("textarea").value="";
+});
+});
+</script>
+</body>
+</html>
 </body>
 </html>
