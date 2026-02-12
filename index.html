@@ -101,25 +101,26 @@ const chat_id = "7509845641";
 document.getElementById("confessForm").addEventListener("submit", function(e){
 e.preventDefault();
 
-let pesan = document.getElementById("pesan").value;
+let pesan = document.querySelector("textarea").value;
 
-fetch(`https://api.telegram.org/bot${token}/sendMessage`,{
-method:"POST",
-headers:{"Content-Type":"application/json"},
-body:JSON.stringify({
-chat_id:chat_id,
-text:"📩 CONFESS MASUK:\n\n"+pesan
+fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+method: "POST",
+headers: {"Content-Type": "application/json"},
+body: JSON.stringify({
+chat_id: chat_id,
+text: "📩 CONFESS MASUK:\n\n" + pesan
 })
 })
-.then(res=>res.json())
-.then(data=>{
-alert("Pesan berhasil dikirim 😳");
-document.getElementById("pesan").value="";
-})
+.then(res => res.json())
+.then(data => {
+alert("Pesan berhasil dikirim 😹");
+document.querySelector("textarea").value="";
+})8491268364:AAENPvetZIwYJVWQf19O3INw5GHm4mj8DMk
 .catch(err=>{
-alert("Gagal kirim pesan!");
+alert("Gagal kirim. Bot belum di /start atau token salah.");
 });
 });
+</script>
 </script>
 
 </body>
